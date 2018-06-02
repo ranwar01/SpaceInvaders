@@ -15,7 +15,7 @@ public class BadGuy extends Enemies {
 	public double vertical_speed_increase = 0.75;
 	public double speed_increase =1.01;
 	public double initial_bullet_frequency = 1; // BULLETS / UPDATE EVERY 10TH OF SECOND SHOOT A BULLET
-	public static double frequency_increase = .5 ;
+	public static double frequency_increase = .6 ; //speed changed to .6
 
 
 	private double dx, dy;
