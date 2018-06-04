@@ -7,7 +7,7 @@ import java.util.Vector;
 
 public class Bullet extends Enemies {
 	
-	public static final int SPEED = 150; //pxls/s
+	public static final int SPEED = 145; //pxls/s
 	public Image img;
 	public static final int  WIDTH = 10;
 	public static final int HEIGHT = 8;
