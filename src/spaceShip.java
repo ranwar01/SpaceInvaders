@@ -8,7 +8,7 @@ import java.awt.Rectangle;
 import java.awt.Toolkit;
 import java.util.Vector;
 
-public class spaceShip {
+public class SpaceShip {
 	
 	
 	public static final double SHOT_FREQUENCY = 100; // BULLET FREQUENCY;
@@ -35,7 +35,7 @@ public class spaceShip {
 	//SPACE SHIP.PNG
     Image img;
 	
-	public spaceShip (double x_, double y_, int maxX){
+	public SpaceShip (double x_, double y_, int maxX){
 		
 		x = x_;
 		y = y_;

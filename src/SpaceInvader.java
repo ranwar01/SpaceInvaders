@@ -17,7 +17,7 @@ public class SpaceInvader extends JApplet implements KeyListener, Runnable{
 	public static final int PLAYING = 0;
 	public static final int WON = 1;
 	public static final int LOST = 2;
-//	public boolean start = false;
+
 
 	//	background
 	public static final int BACKGROUND_HEIGHT = 750;
@@ -25,7 +25,7 @@ public class SpaceInvader extends JApplet implements KeyListener, Runnable{
 
 
 	//	private Player player;
-	public spaceShip ship;
+	public SpaceShip ship;
 
 	//enemies
 	//	public BadGuy bg;
@@ -36,8 +36,9 @@ public class SpaceInvader extends JApplet implements KeyListener, Runnable{
 	private Vector <Bullet> bullets;
 	private Vector <Asteroids> asteroid;
 	//	private Vector <BadGuy> badGuysGroup;
-	private Vector<healthPack> healthp;
+	private Vector<HealthPack> healthp;
 	private int state = PLAYING;
+
 
 	// plasma
 	private Vector <Plasma> plasma;
@@ -55,19 +56,21 @@ public class SpaceInvader extends JApplet implements KeyListener, Runnable{
 		addKeyListener(this);
 		this.setFocusable(true);	
 		setSize(1024, 750);
+	
+		
 
 		c = new Sound(s);
 
 		//background
 		layer2 = new ImageLayer("space12.jpg",0.0, 0.0, 1, 1911,1515 , 0);
 		// player
-		ship = new spaceShip(getWidth()/2, getHeight()-spaceShip.SPACESHIP_HEIGHT, getWidth());
+		ship = new SpaceShip(getWidth()/2, getHeight()-SpaceShip.SPACESHIP_HEIGHT, getWidth());
 
 
 		badGuys = new Vector<BadGuy>();
 		Random m = new Random();
 		//		badGuysGroup = new Vector<BadGuy>();
-		healthp = new Vector<healthPack>();
+		healthp = new Vector<HealthPack>();
 
 		for (int j = 0; j < 150; j++){
 			int bgX_pos = m.nextInt(this.getWidth()-100);
@@ -84,7 +87,7 @@ public class SpaceInvader extends JApplet implements KeyListener, Runnable{
 			int healthX, healthY;
 			healthX = m.nextInt(this.getWidth()-100);
 			healthY = -m.nextInt(25000);
-			healthPack hp = new healthPack(healthX, healthY);
+			HealthPack hp = new HealthPack(healthX, healthY);
 			//			System.out.println(healthX +" " + healthY);
 			healthp.add(hp);
 		}
@@ -244,7 +247,7 @@ public class SpaceInvader extends JApplet implements KeyListener, Runnable{
 
 				if(asteroid.get(j).hitBy(plasma.get(i))&&(plasma.get(i).isVisible())){
 					asteroid.get(j).setAlive(false);
-					spaceShip.scoreCard++;
+					SpaceShip.scoreCard++;
 					c.play();
 					plasma.remove(i);
 					i--;
@@ -265,7 +268,7 @@ public class SpaceInvader extends JApplet implements KeyListener, Runnable{
 				if ((badGuys.get(j).hitBy(plasma.get(i)) )&&(plasma.get(i).isVisible())) {
 					badGuys.get(j).setAlive(false);
 					c.play();
-					spaceShip.scoreCard++;
+					SpaceShip.scoreCard++;
 					plasma.remove(i);
 					j--;
 					i--;
@@ -288,7 +291,7 @@ public class SpaceInvader extends JApplet implements KeyListener, Runnable{
 	}
 	public boolean hasWon(){
 		
-		if (spaceShip.scoreCard >= 200){
+		if (SpaceShip.scoreCard >= 200){
 			return true;
 		}
 		

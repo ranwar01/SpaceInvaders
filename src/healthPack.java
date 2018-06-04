@@ -3,15 +3,17 @@ import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.Toolkit;
 
-public class healthPack {
+public class HealthPack {
 	
 	public int x;
 	public int y;
-	public final int WIDTH = 49;
-	public final int HEIGHT = 63;
-	Image img;
 	
-	public healthPack(int x, int y){
+	//* Width and the height of the Image changed to static will reduce memory foot print  *//
+	private static final int WIDTH = 49;  
+	private static final int HEIGHT = 63;
+	private Image img;
+	
+	public HealthPack(int x, int y){
 		
 		this.x = x;
 		this.y = y;

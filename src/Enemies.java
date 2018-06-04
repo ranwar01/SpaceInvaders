@@ -2,9 +2,9 @@ import java.awt.Rectangle;
 
 public class Enemies {
 	
-	public int x = 0;
-	public int y = 0;
-	boolean alive;
+	protected int x = 0;
+	protected int y = 0;
+	private boolean alive;
 	private final int WIDTH, HEIGHT;
 
 	public Enemies ( int x, int y, int WIDTH, int HEIGHT) {
@@ -24,7 +24,6 @@ public class Enemies {
 		this.x = x;
 	}
 
-	
 	public int getY() {
 		return y;
 	}
@@ -34,9 +33,7 @@ public class Enemies {
 	}
 	
 	public Rectangle getBounds(){
-		
-		return new Rectangle(x, y-(int)Camera2D.y, WIDTH, HEIGHT);
-		
+		return new Rectangle(x, y-(int)Camera2D.y, WIDTH, HEIGHT);	
 	}
 	
 	public boolean hitBy(Plasma p){
@@ -47,31 +44,24 @@ public class Enemies {
 		else {
 			return false;
 		}
-	
+		
 	}
 	
-	public void setAlive(boolean b){
-		
+	public void setAlive(boolean b){	
 		alive = b;
-
 	}
 	
-	public boolean isAlive(){
-		
+	public boolean isAlive(){	
 		return alive;
-
 	}
 	
-	public int getWIDTH(){
-		return WIDTH;
-		
+	public int getWidth(){
+		return WIDTH;	
 	}
 	
 	public int getHeight(){
 		return HEIGHT;
 	}
-
-
 
 }
 	
